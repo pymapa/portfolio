@@ -2,6 +2,6 @@ body {
   width: 100%;
 }
 
-.flex-container {
+.main-container {
   display: flex;
 }
