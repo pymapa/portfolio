@@ -11,3 +11,10 @@ export function setRole(role) {
         payload: role
     }
 }
+
+export function signIn(e) {
+    return {
+        type: "SIGN_IN",
+        payload: e
+    }
+}

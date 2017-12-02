@@ -1,6 +1,7 @@
 const userReducer = (state = {
-    name: "Pyry",
-    role: ""
+    name: "",
+    role: "",
+    signed: false
 }, action) => {
     switch (action.type) {
         case "SET_NAME":
@@ -13,6 +14,12 @@ const userReducer = (state = {
             state = {
                 ...state,
                 role: action.payload
+            }
+            break;
+        case "SIGN_IN":
+            state = {
+                ...state,
+                signed: true
             }
             break;
         default:

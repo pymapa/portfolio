@@ -7,10 +7,7 @@ class Welcome extends Component {
     render () {
         return (
             <div>
-                <h1>Welcome</h1>
-
-                <input type="text" onChange={this.props.setName}/>
-                <p>{this.props.user.name}</p>
+                
             </div>
         )
     }
@@ -24,8 +21,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setName: (name) => {
-            dispatch(setName(name))
+        setName: (e) => {
+            dispatch(setName(e.target.value))
         }
     }
 }
