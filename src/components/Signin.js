@@ -1,12 +1,11 @@
 import React from 'react';
 
-export const Welcome = (props) => {
+export const Signin = (props) => {
     return (
         <div>
-            <h1>Welcome</h1>
+            <h1>Hi there! What should I call you?</h1>
                 <form onSubmit={props.handleSubmit}>
-                <input type="text" onChange={props.setName}/>
-                <p>{props.user.name}</p>
+                <input value={props.user.name} name="name" type="text" onChange={props.handleChange}/>
                 <input type="submit" value="Continue" />
             </form>
         </div>
