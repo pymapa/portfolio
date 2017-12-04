@@ -1,7 +1,19 @@
-body {
-  width: 100%;
+* {
+  box-sizing: border-box
 }
 
-.main-container {
+body {
+  font-family: 'Montserrat', sans-serif;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.mainWrapper {
+  /* text-align: center; */
+}
+
+.flex {
+  /* display: flex; */
 }

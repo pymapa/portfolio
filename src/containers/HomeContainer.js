@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
-import {Signin} from '../components/Signin';
-import {Signing} from '../components/Signing';
-import {Home} from '../components/Home';
+import {Signin} from '../components/home/Signin';
+import {Signing} from '../components/home/Signing';
+import {Home} from '../components/home/Home';
 
 import {signIn} from '../actions/userActions';
+
+import styles from '../main.css';
 
 const STATE_SIGNIN = 1;
 const STATE_WELCOME = 2;
@@ -57,7 +59,7 @@ class HomeContainer extends Component {
     }
     
     return (
-      <div>
+      <div className={styles.flex}>
         {component}
       </div>
     )

@@ -1,0 +1,15 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+}
+/* 
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+} */
