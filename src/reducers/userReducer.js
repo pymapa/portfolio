@@ -19,6 +19,7 @@ const userReducer = (state = {
         case "SIGN_IN":
             state = {
                 ...state,
+                name: action.payload.name,
                 signed: true
             }
             break;

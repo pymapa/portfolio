@@ -12,9 +12,16 @@ export function setRole(role) {
     }
 }
 
-export function signIn(e) {
+export function signIn(user) {
+    sessionStorage.setItem("user", JSON.stringify(user));
     return {
         type: "SIGN_IN",
-        payload: e
+        payload: user
+    }
+}
+
+export function signOut() {
+    return {
+        type: "SIGN_OUT"
     }
 }
