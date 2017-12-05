@@ -7,7 +7,7 @@ const About = () => {
 
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum ex pariatur voluptatibus nostrum culpa nisi, perferendis ab assumenda nam sapiente veniam numquam. Sit culpa molestias quaerat excepturi praesentium. Beatae, dignissimos?</p>
         </div>
-    )
-}
+    );
+};
 
 export default About;

@@ -10,37 +10,37 @@ import HomeContainer from './HomeContainer';
 import AboutContainer from './AboutPage';
 
 class App extends Component {
-  componentDidMount() {
-    let user = JSON.parse(sessionStorage.getItem('user'));
-    if(user) {
-      this.signIn(user);
+    componentDidMount() {
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        if(user) {
+            this.signIn(user);
+        }
     }
-  }
-  render() {
-    return (
-      <BrowserRouter>
-        <div className={styles.mainWrapper}>
-          <HeaderContainer />
-          <Switch>
-            <Route exact path="/" component={HomeContainer} />
-            <Route exact path="/about" component={AboutContainer} />
-          </Switch>
-        </div>
-      </BrowserRouter>
-    );
-  }
+    render() {
+        return (
+            <BrowserRouter>
+                <div className={styles.mainWrapper}>
+                    <HeaderContainer />
+                    <Switch>
+                        <Route exact path="/" component={HomeContainer} />
+                        <Route exact path="/about" component={AboutContainer} />
+                    </Switch>
+                </div>
+            </BrowserRouter>
+        );
+    }
 }
 
 const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  }
-}
+    return {
+        user: state.user,
+    };
+};
 const mapDispatchToProps = (dispatch) => {
-  return {
-    signIn: (user) => {
-      dispatch(signIn(user));
-    }
-  }
-}
+    return {
+        signIn: (user) => {
+            dispatch(signIn(user));
+        }
+    };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(App);

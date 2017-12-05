@@ -12,4 +12,4 @@ export default createStore(
     }),
     {},
     applyMiddleware(createLogger(), thunk)
-)
+);

@@ -7,7 +7,7 @@ class HeaderContainer extends Component {
     render() {
         return (
             <div>
-                <Header user={this.props.user} />
+                {/* <Header user={this.props.user} /> */}
             </div>
         );
     }
@@ -15,11 +15,11 @@ class HeaderContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      user: state.user,
-    }
-  }
-  const mapDispatchToProps = (dispatch) => {
+        user: state.user,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
     
-  }
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

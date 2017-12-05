@@ -5,7 +5,7 @@
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": "plugin:react/recommended",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -18,19 +18,16 @@
     ],
     "rules": {
         "indent": [
-            "error",
-            "tab"
+            "warn",
+            4
         ],
         "linebreak-style": [
             "error",
             "unix"
         ],
-        "quotes": [
-            "error",
-            "double"
-        ],
+        "quotes": [2, "single", "avoid-escape"],
         "semi": [
-            "error",
+            "warn",
             "always"
         ]
     }
