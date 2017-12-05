@@ -1,19 +1,36 @@
+@value vars: "./shared/variables.css";
+@value dark, semidark, semilight, light from vars;
+
 * {
   box-sizing: border-box
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color: light;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid semidark;
+  margin: 1em 0;
+  padding: 0; 
+}
+
+
+.mainWrapper {
+  display: grid;
+  grid-template-rows: 1fr 6fr 1fr;
+}
+.headerWrapper {
+}
+.contentWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
+.footerWrapper {
 
-.mainWrapper {
-  /* text-align: center; */
-}
-
-.flex {
-  /* display: flex; */
 }

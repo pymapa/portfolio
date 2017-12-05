@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import {Header} from '../components/header/Header';
@@ -6,9 +7,7 @@ import {Header} from '../components/header/Header';
 class HeaderContainer extends Component {
     render() {
         return (
-            <div>
-                {/* <Header user={this.props.user} /> */}
-            </div>
+            <Header user={this.props.user} />
         );
     }
 }
@@ -18,8 +17,9 @@ const mapStateToProps = (state) => {
         user: state.user,
     };
 };
-const mapDispatchToProps = (dispatch) => {
-    
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
+export default connect(mapStateToProps)(HeaderContainer);
+
+HeaderContainer.propTypes = {
+    user: PropTypes.object.isRequired
+};

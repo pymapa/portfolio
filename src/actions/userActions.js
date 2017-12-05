@@ -13,6 +13,7 @@ export function setRole(role) {
 }
 
 export function signIn(user) {
+    user.signed = true;
     sessionStorage.setItem('user', JSON.stringify(user));
     return {
         type: 'SIGN_IN',

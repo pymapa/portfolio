@@ -9,7 +9,12 @@ export const Header = (props) => {
     }
     return (
         <div className={styles.bar}>
-            {content}
+            <div className={styles.left}>1</div>
+
+            <div className={styles.center}>2</div>
+            <div className={styles.right}>3</div>
+            <div className={styles.line}><hr/></div>
+            {/* {content} */}
         </div>
     );
 };

@@ -1,30 +1,40 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import styles from  '../main.css';
+import PropTypes from 'prop-types';
+import styles from '../main.css';
 import { connect } from 'react-redux';
-import {signIn} from '../actions/userActions';
+import { signIn } from '../actions/userActions';
 
 import HeaderContainer from './HeaderContainer';
+import FooterContainer from './FooterContainer';
 
 import HomeContainer from './HomeContainer';
 import AboutContainer from './AboutPage';
 
 class App extends Component {
-    componentDidMount() {
+    componentWillMount() {
         let user = JSON.parse(sessionStorage.getItem('user'));
-        if(user) {
-            this.signIn(user);
+        console.log(user);
+        if (user) {
+            this.props.signIn(user);
         }
     }
     render() {
         return (
             <BrowserRouter>
                 <div className={styles.mainWrapper}>
-                    <HeaderContainer />
-                    <Switch>
-                        <Route exact path="/" component={HomeContainer} />
-                        <Route exact path="/about" component={AboutContainer} />
-                    </Switch>
+                    <div className={styles.headerWrapper}>
+                        <HeaderContainer />
+                    </div>
+                    <div className={styles.contentWrapper}>
+                        <Switch>
+                            <Route exact path="/" component={HomeContainer} />
+                            <Route exact path="/about" component={AboutContainer} />
+                        </Switch>
+                    </div>
+                    <div className={styles.footerWrapper}>
+                        <FooterContainer />
+                    </div>
                 </div>
             </BrowserRouter>
         );
@@ -44,3 +54,7 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+App.propTypes = {
+    signIn: PropTypes.func.isRequired,
+};

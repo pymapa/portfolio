@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import fonts from '../../shared/fonts.css';
+import styles from './Home.css';
 
 export const Home = (props) => {
     return (
-        <div>
-            <h1>Home!</h1>
-
+        <div className={styles.parent}>
+            <h1 className={fonts.mainHeading}>Home!</h1>
             <h3>Hi there {props.user.name}! Nice to meet you. Would you like something?</h3>
         </div>
     );

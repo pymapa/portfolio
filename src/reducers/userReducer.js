@@ -1,5 +1,5 @@
 const userReducer = (state = {
-    name: '',
+    name: JSON.parse(sessionStorage.getItem('user')) ||'',
     role: '',
     signed: false
 }, action) => {
@@ -20,7 +20,7 @@ const userReducer = (state = {
         state = {
             ...state,
             name: action.payload.name,
-            signed: true
+            signed: action.payload.signed
         };
         break;
     default:

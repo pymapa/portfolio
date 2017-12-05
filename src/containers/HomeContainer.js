@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import PropTypes from 'prop-types';
 import { Signin } from '../components/home/Signin';
 import { Signing } from '../components/home/Signing';
 import { Home } from '../components/home/Home';
@@ -27,6 +27,15 @@ class HomeContainer extends Component {
         this.signIn = this.signIn.bind(this);
     }
 
+    componentDidMount() {
+        console.log(this.props.user);
+        if(this.props.user.signed) {
+            console.log('asdf');
+            this.setState({user: this.props.user});
+            this.setState({loginState: STATE_HOME});
+        }
+    }
+
     handleChange(e) {
         let _user = this.state.user;
         _user[e.target.name] = e.target.value;
@@ -35,7 +44,7 @@ class HomeContainer extends Component {
 
     signIn(e) {
         e.preventDefault();
-        // this.props.signIn(this.state.user)
+        this.props.signIn(this.state.user);
         this.setState({ loginState: STATE_WELCOME });
         setTimeout(() => {
             this.setState({ loginState: STATE_HOME });
@@ -52,10 +61,10 @@ class HomeContainer extends Component {
             component = <Signing user={this.state.user} />;
             break;
         case STATE_HOME:
-            component = <Home />;
+            component = <Home user={this.state.user} />;
             break;
         default:
-            component = <Home />;
+            component = <Home user={this.state.user} />;
         };
 
         return (
@@ -79,3 +88,8 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
+
+HomeContainer.propTypes = {
+    signIn: PropTypes.func.isRequired,
+    user: PropTypes.object
+};

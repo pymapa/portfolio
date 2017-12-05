@@ -1,6 +1,28 @@
+@value vars: "../../shared/variables.css";
+@value dark, semidark, semilight, light from vars;
+
 .bar {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    background-color: light;
+    padding: 2em;
+}
+
+.left {
     display: flex;
-    align-items: center;
-    composes: deepAquaBackground from "../../shared/variables.css";
-    padding: .5em;
+    justify-content: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+}
+
+.line {
+    grid-column: 1/4;
 }

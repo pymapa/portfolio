@@ -14,3 +14,11 @@
 .deepAquaBackground {
     background-color: #003B46;
 }
+
+@value dark: #003B46;
+
+@value semidark: #07575B;
+
+@value semilight: #66A5AD;
+
+@value light: #C4DFE6;
