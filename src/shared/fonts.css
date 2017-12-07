@@ -1,3 +1,6 @@
+@value vars: "./variables.css";
+@value dark, semidark, semilight, light from vars;
+
 .mainHeading {
-    composes: wave from "./variables.css";
+    color: semilight;
 }

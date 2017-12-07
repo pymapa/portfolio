@@ -1,12 +1,32 @@
+@value vars: "../../shared/variables.css";
+@value dark, semidark, semilight, light from vars;
+
 .wrapper {
-    padding: 2em;
+    margin: 0;
+    color: light;
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
+    background-color: dark;
 }
 
-.menuIcon {
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    font-size: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
     grid-column: 3/4;
+}
+
+.wrapper a {
+   color: light;
+}
+.wrapper a:hover {
+    color: semilight;
 }

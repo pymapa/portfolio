@@ -7,6 +7,7 @@ import { signIn } from '../actions/userActions';
 
 import HeaderContainer from './HeaderContainer';
 import FooterContainer from './FooterContainer';
+import MenuContainer from './MenuContainer';
 
 import HomeContainer from './HomeContainer';
 import AboutContainer from './AboutPage';
@@ -14,7 +15,6 @@ import AboutContainer from './AboutPage';
 class App extends Component {
     componentWillMount() {
         let user = JSON.parse(sessionStorage.getItem('user'));
-        console.log(user);
         if (user) {
             this.props.signIn(user);
         }
@@ -27,10 +27,12 @@ class App extends Component {
                         <HeaderContainer />
                     </div>
                     <div className={styles.contentWrapper}>
+                        <div></div>
                         <Switch>
                             <Route exact path="/" component={HomeContainer} />
                             <Route exact path="/about" component={AboutContainer} />
                         </Switch>
+                        <MenuContainer />
                     </div>
                     <div className={styles.footerWrapper}>
                         <FooterContainer />

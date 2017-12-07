@@ -28,9 +28,7 @@ class HomeContainer extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.user);
         if(this.props.user.signed) {
-            console.log('asdf');
             this.setState({user: this.props.user});
             this.setState({loginState: STATE_HOME});
         }

@@ -1,26 +1,30 @@
 @value vars: "../../shared/variables.css";
 @value dark, semidark, semilight, light from vars;
 
-.bar {
+.wrapper {
+    color: light;
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
-    background-color: light;
-    padding: 2em;
+    background-color: semidark;
+    height: 100%;
 }
 
 .left {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .center {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .right {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .line {
