@@ -3,7 +3,7 @@
 
 .wrapper {
     color: dark;
-    font-size: 120%;
+    font-size: 200%;
     grid-column: 3/4;
     display: grid;
     grid-row: 2/4;

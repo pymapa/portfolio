@@ -12,7 +12,10 @@ export const Header = (props) => {
             <div className={styles.left}>1</div>
 
             <div className={styles.center}>{content}</div>
-            <div className={styles.right}>3</div>
+            <div className={styles.right}>
+                <SomeLink link='https://github.com/pymapa/portfolio' faIcon='github'/>
+                <SomeLink link='' faIcon='linkedin'/>
+            </div>
             {/* <div className={styles.line}><hr/></div> */}
         </div>
     );
@@ -20,4 +23,17 @@ export const Header = (props) => {
 
 Header.propTypes = {
     user: PropTypes.object
+};
+
+const SomeLink = (props) => {
+    return (
+        <div className={styles.someLink}>
+            <a href={props.link}><i className={'fa fa-' + props.faIcon} aria-hidden="true"></i></a>
+        </div>
+    );
+};
+
+SomeLink.propTypes = {
+    link: PropTypes.string,
+    faIcon: PropTypes.string
 };
