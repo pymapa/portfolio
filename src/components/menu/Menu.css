@@ -4,21 +4,30 @@
 .wrapper {
     color: dark;
     font-size: 120%;
+    grid-column: 3/4;
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-row: 1/4;
+    grid-row: 2/4;
+    background: transparent;
+    background-color: light;
+}
+
+.hidden {
+    display: none;
 }
 
 .menuContainer {
-    grid-column: 2/3;
+    /* grid-column: 3/4; */
     display: grid;
     flex-direction: column;
-    background: transparent;
-    background-color: light;
 }
 
 .menuItem {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.wrapper a {
+    color: dark;
+    text-decoration: none;
 }

@@ -8,11 +8,11 @@ export const Footer = (props) => {
             <div className={styles.left}>1</div>
             <div className={styles.center}></div>
             
-            <div className={styles.right}>
+            <div className={styles.right}
+                onMouseEnter={props.showMenu} 
+                onMouseLeave={props.hideMenu}>
                 <a href="#"><i 
                     className="fa fa-bars" 
-                    onMouseEnter={props.showMenu} 
-                    onMouseLeave={props.hideMenu}
                     aria-hidden="true"></i></a>
             </div>
         </div>

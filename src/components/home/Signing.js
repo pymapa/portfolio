@@ -5,7 +5,7 @@ import styles from './Home.css';
 
 export const Signing = (props) => {
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.parent}>
             <h1>Hi there {props.user.name}</h1>
         </div>
     );

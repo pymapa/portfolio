@@ -29,7 +29,7 @@ hr {
 }
 .contentWrapper {
   display: grid;
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-rows: 1fr 14fr 1fr;
 }
 .footerWrapper {
   /* height: 10vh; */

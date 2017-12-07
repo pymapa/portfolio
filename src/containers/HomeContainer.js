@@ -7,7 +7,8 @@ import { Home } from '../components/home/Home';
 
 import { signIn } from '../actions/userActions';
 
-import styles from '../main.css';
+// import styles from '../main.css';
+import styles from '../components/home/Home.css';
 
 const STATE_SIGNIN = 1;
 const STATE_WELCOME = 2;
@@ -66,7 +67,7 @@ class HomeContainer extends Component {
         };
 
         return (
-            <div className={styles.flex}>
+            <div className={styles.wrapper}>
                 {component}
             </div>
         );
