@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
     background-color: dark;
+    grid-column: 1/4;
 }
 
 .left {

@@ -6,7 +6,7 @@ import form from '../../shared/form.css';
 
 export const Signin = (props) => {
     return (
-        <div className={styles.parent}>
+        <div className={styles.wrapper}>
             <div className={styles.header}>
                 <h1 className={fonts.mainHeading}>Hi there! What should I call you?</h1>
             </div>
