@@ -1,6 +1,7 @@
 @value vars: "./variables.css";
-@value dark, semidark, semilight, light from vars;
+@value dark, semidark, semilight, light, DancingScript from vars;
 
 .mainHeading {
-    color: semilight;
+    color: dark;
+    font-family: DancingScript;
 }

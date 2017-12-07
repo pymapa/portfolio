@@ -7,8 +7,8 @@ import styles from './Menu.css';
 export const Menu = (props) => {
     return (
         <div className={styles.menuContainer}>
-            <MenuLink to='' label={<i className="fa fa-home" aria-hidden="true"></i>}/>
-            <MenuLink to='about' label={<i className="fa fa-question" aria-hidden="true"></i>}/>
+            <MenuLink to=''faIcon='home'/>
+            <MenuLink to='about' faIcon='question'/>
         </div>
     );
 };
@@ -20,12 +20,17 @@ Menu.propTypes = {
 const MenuLink = (props) => {
     return (
         <div className={styles.menuItem}>
-            <Link to={'/' + props.to}>{props.label}</Link>
+            <Link to={'/' + props.to} id={props.to}>
+                <i className={'fa fa-' + props.faIcon} aria-hidden="true"></i>
+                <br/>
+                <p>Label</p>
+            </Link>
         </div>
     );
 };
 
 MenuLink.propTypes = {
     to: PropTypes.string,
-    label: PropTypes.string
+    label: PropTypes.string,
+    faIcon: PropTypes.string
 };

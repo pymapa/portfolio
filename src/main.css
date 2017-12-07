@@ -1,12 +1,12 @@
 @value vars: "./shared/variables.css";
-@value dark, semidark, semilight, light from vars;
+@value dark, semidark, semilight, light, WorkSans from vars;
 
 * {
   /* box-sizing: border-box */
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: WorkSans;
 }
 
 hr {
@@ -19,18 +19,14 @@ hr {
 }
 
 .mainWrapper {
-  /* height: 100vh; */
   display: grid;
   grid-template-rows: 10vh 80vh 10vh;
 }
 .headerWrapper {
-  /* padding: 0; */
-  /* height: 10vh; */
 }
 .contentWrapper {
   display: grid;
   grid-template-rows: 1fr 14fr 1fr;
 }
 .footerWrapper {
-  /* height: 10vh; */
 }

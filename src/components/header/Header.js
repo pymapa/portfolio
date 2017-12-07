@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Header.css';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 export const Header = (props) => {
     let content = '';
@@ -9,14 +10,17 @@ export const Header = (props) => {
     }
     return (
         <div className={styles.wrapper}>
-            <div className={styles.left}>1</div>
+            <div className={styles.left}>
+                <Link to='/'>
+                    <p>Bar Foo</p>
+                </Link>
+            </div>
 
             <div className={styles.center}>{content}</div>
             <div className={styles.right}>
                 <SomeLink link='https://github.com/pymapa/portfolio' faIcon='github'/>
-                <SomeLink link='' faIcon='linkedin'/>
+                <SomeLink link='https://www.linkedin.com/in/pyry-pajunp%C3%A4%C3%A4-98890457/' faIcon='linkedin'/>
             </div>
-            {/* <div className={styles.line}><hr/></div> */}
         </div>
     );
 };

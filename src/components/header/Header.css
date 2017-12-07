@@ -1,5 +1,5 @@
 @value vars: "../../shared/variables.css";
-@value dark, semidark, semilight, light from vars;
+@value dark, semidark, semilight, light, DancingScript from vars;
 
 .wrapper {
     color: dark;
@@ -13,6 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 200%;
 }
 
 .center {
@@ -37,6 +38,8 @@
 
 .wrapper a {
     color: dark;
+    text-decoration: none;
+    font-family: DancingScript;
 }
 .wrapper a:hover {
     color: light;
