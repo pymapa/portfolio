@@ -5,4 +5,5 @@
     /* grid-template-columns: 1fr 6fr 1fr;  */
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }

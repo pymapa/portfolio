@@ -16,7 +16,7 @@ export const Header = (props) => {
                 </Link>
             </div>
 
-            <div className={styles.center}>{content}</div>
+            <div className={styles.center}></div>
             <div className={styles.right}>
                 <SomeLink link='https://github.com/pymapa/portfolio' faIcon='github'/>
                 <SomeLink link='https://www.linkedin.com/in/pyry-pajunp%C3%A4%C3%A4-98890457/' faIcon='linkedin'/>
