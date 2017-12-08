@@ -9,6 +9,8 @@ export const Menu = (props) => {
         <div className={styles.menuContainer}>
             <MenuLink to=''faIcon='home'/>
             <MenuLink to='about' faIcon='question'/>
+            <MenuLink to='messaging' faIcon='comments'/>
+            <MenuLink to='code' faIcon='code'/>
         </div>
     );
 };

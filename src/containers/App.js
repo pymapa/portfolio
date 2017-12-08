@@ -8,6 +8,7 @@ import { signIn } from '../actions/userActions';
 import HeaderContainer from './HeaderContainer';
 import FooterContainer from './FooterContainer';
 import MenuContainer from './MenuContainer';
+import MessagingContainer from './MessagingContainer';
 
 import HomeContainer from './HomeContainer';
 import AboutContainer from './AboutPage';
@@ -31,6 +32,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={HomeContainer} />
                             <Route exact path="/about" component={AboutContainer} />
+                            <Route exact path='/messaging' component={MessagingContainer} />
                         </Switch>
                         <MenuContainer />
                     </div>

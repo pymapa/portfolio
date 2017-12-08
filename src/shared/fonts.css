@@ -2,6 +2,8 @@
 @value dark, semidark, semilight, light, DancingScript from vars;
 
 .mainHeading {
+    font-size: 3em;
     color: dark;
     font-family: DancingScript;
+    margin-bottom: 2em;
 }

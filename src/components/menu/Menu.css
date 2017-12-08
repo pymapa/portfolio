@@ -5,11 +5,10 @@
     color: dark;
     font-size: 200%;
     grid-column: 3/4;
+    grid-row: 1/4;
     display: flex;
-    grid-row: 2/4;
-    background: transparent;
-    justify-content: center;
-    /* background-color: light; */
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .hidden {
@@ -17,14 +16,13 @@
 }
 
 .menuContainer {
-    /* grid-column: 3/4; */
+    width: 5em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .menuItem {
+    padding: 1em;
     display: flex;
     justify-content: center;
     align-items: center;

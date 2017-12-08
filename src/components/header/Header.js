@@ -12,7 +12,7 @@ export const Header = (props) => {
         <div className={styles.wrapper}>
             <div className={styles.left}>
                 <Link to='/'>
-                    <p>Bar Foo</p>
+                    <p>Bar _Foo</p>
                 </Link>
             </div>
 
