@@ -6,6 +6,6 @@ export function showMenu() {
 
 export function hideMenu() {
     return {
-        type: 'HIDE_MENU'
+        type: 'SHOW_MENU'
     };
 }

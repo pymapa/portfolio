@@ -1,9 +1,12 @@
 import React from 'react';
 import {About} from '../components/about/About';
+import styles from '../components/about/About.css';
 
 const AboutContainer = () => {
     return (
-        <About />
+        <div className={styles.wrapper}>
+            <About />
+        </div>
     );
 };
 

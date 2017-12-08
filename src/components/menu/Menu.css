@@ -5,9 +5,10 @@
     color: dark;
     font-size: 200%;
     grid-column: 3/4;
-    display: grid;
+    display: flex;
     grid-row: 2/4;
     background: transparent;
+    justify-content: center;
     /* background-color: light; */
 }
 
@@ -17,8 +18,10 @@
 
 .menuContainer {
     /* grid-column: 3/4; */
-    display: grid;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .menuItem {
