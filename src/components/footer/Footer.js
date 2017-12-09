@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Footer.css';
-import {Technologies} from './Technologies';
 
 export const Footer = (props) => {
     return (
@@ -13,7 +12,6 @@ export const Footer = (props) => {
                 
             </div>
             <div className={styles.center}>
-                {/* <Technologies /> */}
             </div>
             
             <div className={styles.right}
