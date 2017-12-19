@@ -1,6 +1,6 @@
 ## Bar Foo
 
-This is a web client playground for testing/practising new technologies and showcasing some code.
+This is a web client playground for testing/practising new technologies and showcasing code.
 
 Next up: node REST API, not yet implemented.
 
