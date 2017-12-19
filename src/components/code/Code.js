@@ -16,6 +16,8 @@ export const Code = () => {
                 registerServiceWorker();
                 `}
             </pre>
+
+            <Technologies />
         </div>
     );
 };

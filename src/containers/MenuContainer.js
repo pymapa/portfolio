@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from '../components/menu/Menu.css';
 
 import {Menu} from '../components/menu/Menu';
+import {Menuicon} from '../components/menu/Menuicon';
 import {showMenu, hideMenu} from '../actions/menuActions';
 
 class MenuContainer extends Component {
@@ -27,8 +28,8 @@ class MenuContainer extends Component {
 
     render () {
         return (
-            <div onMouseEnter={this.showMenu} onMouseLeave={this.hideMenu} className={this.props.menu.show ? styles.wrapper : styles.hidden}>
-                {this.props.menu.show ? <Menu hideMenu={this.hideMenu} menu={this.props.menu} /> : ''}
+            <div onMouseEnter={this.showMenu} onMouseLeave={this.hideMenu} className={this.props.menu.show ? styles.wrapper : styles.wrapper}>
+                {this.props.menu.show ? <Menu hideMenu={this.hideMenu} menu={this.props.menu} /> : <Menuicon />}
             </div>
         );
     }

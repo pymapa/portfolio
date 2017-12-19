@@ -11,15 +11,14 @@ export const Home = (props) => {
             <br/>
             <p>My name is Pyry and this is my web-playground. 
                 I started this project in December 2017 
-                and will continue tweaking and adding useless stuff. 
-                Unless I lose my interest.
+                and will continue tweaking and adding useless stuff 
+                until I lose my interest.
             </p>
             <p>There are information about technologies used in the project, 
-                link to Github repo and my LinkedIn profile, for those interested. 
-                I will add a discussion forum that most likely no one will use, 
-                but just for the heck of it. At least geeks can mock my ugly code.
+                link to Github repo and to my LinkedIn profile, for those interested. 
+                You are free to contact regarding recruitment, fancy ideas or just mock my ugly code.
             </p>
-            <p>Enjoy!</p>
+            <p><i>Enjoy!</i></p>
         </div>
     );
 };

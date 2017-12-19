@@ -1,19 +1,16 @@
 
 .technologies {
     width: 100%;
-    /* grid-column: 1/4; */
-    /* grid-row: 3/4; */
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .client {
+    padding: 1em;
     font-family: DancingScript;
-    /* background-color: light; */
     grid-row: 1/2;
     display: flex;
     justify-content: space-around;
-    /* align-items: flex-end; */
 }
 
 .clientItem {
@@ -21,10 +18,10 @@
 }
 
 .backend {
+    padding: 1em;
     display: flex;
     text-decoration: underline;
     font-size: 80%;
-    /* background-color: light; */
     grid-row: 2/3;
     justify-content: space-around;
     align-items: center;
@@ -32,12 +29,4 @@
 
 .backendItem {
     
-}
-
-.copyright {
-    font-family: DancingScript;
-    display: flex;
-    grid-row: 3/4;
-    font-size: 80%;
-    justify-content: center;
 }

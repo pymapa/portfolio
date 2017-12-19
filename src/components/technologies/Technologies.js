@@ -17,9 +17,6 @@ export const Technologies = () => {
                 <Backend name='MongoDB'/>
                 <Backend name='Heroku'/>
             </div>
-            <div className={styles.copyright}>
-                <p>&#169;Pyry Pajunpää 2017</p>
-            </div>
         </div>
     );
 };

@@ -44,10 +44,10 @@ class HomeContainer extends Component {
     signIn(e) {
         e.preventDefault();
         this.props.signIn(this.state.user);
-        this.setState({ loginState: STATE_WELCOME });
-        setTimeout(() => {
-            this.setState({ loginState: STATE_HOME });
-        }, 2000);
+        this.setState({ loginState: STATE_HOME });
+        // setTimeout(() => {
+        //     this.setState({ loginState: STATE_HOME });
+        // }, 2000);
     }
 
     render() {

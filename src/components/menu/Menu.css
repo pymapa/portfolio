@@ -33,3 +33,8 @@
     color: dark;
     text-decoration: none;
 }
+
+.menuIcon {
+    width: 5em;
+    display: flex;
+}

@@ -7,6 +7,7 @@ export const Messaging = () => {
     return (
         <div className={styles.parent}>
             <h1 className={font.mainHeading}>_Messaging</h1>
+            <p>´// TODO: not yet implemented;´</p>
         </div>
     );
 };

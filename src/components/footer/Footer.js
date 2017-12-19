@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Footer.css';
+import {Modal} from '../modal/Modal';
 
 export const Footer = (props) => {
     return (
@@ -12,14 +13,11 @@ export const Footer = (props) => {
                 
             </div>
             <div className={styles.center}>
+                <Modal />
             </div>
             
-            <div className={styles.right}
-                onMouseEnter={props.showMenu} 
-                onMouseLeave={props.hideMenu}>
-                <a href="#"><i 
-                    className="fa fa-bars" 
-                    aria-hidden="true"></i></a>
+            <div className={styles.right}>
+                <a href="#">Sign out</a>
             </div>
         </div>
     );
