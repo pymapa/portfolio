@@ -2,7 +2,7 @@
     display: grid;
     grid-row: 2/3;
     grid-column: 1/4;
-    grid-template-columns: 1fr 6fr 1fr; 
+    grid-template-columns: 1fr 6fr 1fr;
 }
 
 .messagesWrapper {
