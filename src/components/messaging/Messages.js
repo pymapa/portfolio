@@ -1,10 +1,25 @@
 import React from 'react';
 import styles from './Messaging.css';
 
+import {Message} from './Message';
+
 export const Messages = (props) => {
+
     return (
         <div className={styles.messagesWrapper}>
-            <h3>Messages</h3>
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
+            <Message />
         </div>
     );
 };

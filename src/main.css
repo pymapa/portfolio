@@ -16,14 +16,17 @@ hr {
 }
 
 .mainWrapper {
+  height: 100%;
   display: grid;
   grid-template-rows: 10vh 80vh 10vh;
 }
 .headerWrapper {
 }
 .contentWrapper {
+  height: 100%;
   display: grid;
   grid-template-rows: 1fr 14fr 1fr;
+  grid-template-columns: 1fr 8fr 1fr;
 }
 .footerWrapper {
 }
