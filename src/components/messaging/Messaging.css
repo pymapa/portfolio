@@ -5,11 +5,15 @@
     grid-template-columns: 1fr 6fr 1fr; 
 }
 
-.parent {
+.messagesWrapper {
     grid-column: 2/3;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+.writemessageWrapper {
+    
 }
