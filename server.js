@@ -14,7 +14,7 @@ app.use(morgan('dev'));
 require('dotenv').config();
 
 // Use REST API
-app.use('/api', require('./api/' + process.env.API_VERSION +  '/index'));
+// app.use('/api', require('./api/' + process.env.API_VERSION +  '/index'));
 
 // app.use(express.static(path.join(__dirname, 'build')));
 app.get('*', (req, res) => {
