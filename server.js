@@ -1,6 +1,6 @@
 const express = require('express');
-const app = express()
-const bodyParser = require('body-parser')
+const app = express();
+const bodyParser = require('body-parser');
 const path = require('path');
 const morgan = require('morgan');
 
@@ -14,7 +14,7 @@ app.use(morgan('dev'));
 require('dotenv').config();
 
 // Use REST API
-// app.use('/api', require('./api/index'));
+app.use('/api', require('./api/' + process.env.API_VERSION +  '/index'));
 
 // app.use(express.static(path.join(__dirname, 'build')));
 app.get('*', (req, res) => {
