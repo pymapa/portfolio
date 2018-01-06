@@ -7,19 +7,27 @@ export const Messages = (props) => {
 
     return (
         <div className={styles.messagesWrapper}>
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
         </div>
     );
 };
