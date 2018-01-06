@@ -7,6 +7,9 @@ export const Messages = (props) => {
 
     return (
         <div className={styles.messagesWrapper}>
+            <Message message={'eka'} />
+            <Message message={'asdfasdf'} />
+            {/* <Message message={'asdfasdf'} />
             <Message message={'asdfasdf'} />
             <Message message={'asdfasdf'} />
             <Message message={'asdfasdf'} />
@@ -28,6 +31,12 @@ export const Messages = (props) => {
             <Message message={'asdfasdf'} />
             <Message message={'asdfasdf'} />
             <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} /> */}
+            <Message message={'asdfasdf'} />
+            <Message message={'asdfasdf'} />
+            <Message message={'vika'} />
         </div>
     );
 };

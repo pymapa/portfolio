@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from '../components/messaging/Messaging.css';
 import {Messaging} from '../components/messaging/Messaging';
 import {Messages} from '../components/messaging/Messages';
-import {WriteMessage} from '../components/messaging/WriteMessage';
+import WriteMessage from '../components/messaging/WriteMessage';
 
 class MessagingContainer extends Component {
     render () {
