@@ -28,6 +28,16 @@ module.exports = {
                     key: 'id',
                     as: 'userId'
                 }
+            },
+            conversationId: {
+                allowNull: false,
+                type: Sequelize.INTEGER,
+                onDelete: 'CASCADE',
+                references: {
+                    model: 'Conversations',
+                    key: 'id',
+                    as: 'conversationId'
+                }
             }
         });
     },

@@ -14,7 +14,7 @@ app.use(morgan('dev'));
 require('dotenv').config();
 
 // Use REST API
-// app.use('/api', require('./api/' + process.env.API_VERSION +  '/index'));
+require('./api/index')(app);
 
 // app.use(express.static(path.join(__dirname, 'build')));
 app.get('*', (req, res) => {
@@ -23,6 +23,5 @@ app.get('*', (req, res) => {
 
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), () => {
-    console.log(process.env.DATABASE_URL);
-    console.log('Server running on port ' + app.get('port'));
+    console.info('Server running on port ' + app.get('port'));
 });

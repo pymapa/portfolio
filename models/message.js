@@ -6,9 +6,14 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    Message.associate = (model) => {
+    Message.associate = (models) => {
         Message.belongsTo(models.User, {
             foreignKey: 'userId',
+            onDelete: 'CASCADE'
+        });
+
+        Message.belongsTo(models.Conversation, {
+            foreignKey: 'conversationId',
             onDelete: 'CASCADE'
         });
     };
