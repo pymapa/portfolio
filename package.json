@@ -28,6 +28,8 @@
     "jest": "20.0.4",
     "morgan": "^1.9.0",
     "object-assign": "4.1.1",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
@@ -41,6 +43,7 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "sequelize": "^4.29.0",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",
@@ -50,7 +53,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "node server",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
