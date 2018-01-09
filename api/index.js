@@ -9,6 +9,7 @@ const conversationsController = require('../controllers').conversations;
 module.exports = (app) => {
     // User actions
     app.put(API_PREFIX + '/user', userController.create);
+    app.post(API_PREFIX + '/login', userController.login);
 
     // Conversation actions
     app.put(API_PREFIX + '/conversation', conversationsController.create);
