@@ -13,6 +13,7 @@
     font-size: 130%;
     height: 45px;
     flex: 2;
+    color: dark;
 }
 
 .textarea {
@@ -27,9 +28,6 @@
 }
 
 .submit {
-    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-    box-shadow: inset 0px 1px 0px 0px #45D6D6;
     background-color: light;
     border: 1px solid semidark;
     display: inline-block;

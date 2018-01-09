@@ -1,0 +1,14 @@
+.wrapper {
+    max-height: 80vh;
+    display: grid;
+    grid-row: 2/3;
+    grid-column: 1/4;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 6fr 1fr;
+    align-items: center;
+}
+
+.formWrapper {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}

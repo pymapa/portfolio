@@ -9,6 +9,13 @@
 # production
 /build
 
+# VScode conf
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # misc
 .env
 .DS_Store

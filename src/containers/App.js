@@ -14,6 +14,8 @@ import CodeContainer from './CodeContainer';
 import HomeContainer from './HomeContainer';
 import AboutContainer from './AboutPage';
 
+import UserContainer from '../components/user/UserContainer';
+
 class App extends Component {
     componentWillMount() {
         let user = JSON.parse(sessionStorage.getItem('user'));
@@ -21,6 +23,7 @@ class App extends Component {
             this.props.signIn(user);
         }
     }
+
     render() {
         return (
             <BrowserRouter>
@@ -35,6 +38,7 @@ class App extends Component {
                             <Route exact path="/about" component={AboutContainer} />
                             <Route exact path='/messaging' component={MessagingContainer} />
                             <Route exact path='/code' component={CodeContainer} />
+                            <Route exact path='/login' component={UserContainer} />
                         </Switch>
                         <MenuContainer />
                     </div>

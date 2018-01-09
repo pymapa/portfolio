@@ -1,12 +1,16 @@
 // API prefix
 const API_PREFIX = process.env.API_PREFIX + process.env.API_VERSION;
-console.info('API version: ' + process.env.API_VERSION)
+console.info('API version: ' + process.env.API_VERSION);
 
 // Require controllers
 const userController = require('../controllers').users;
 const conversationsController = require('../controllers').conversations;
 
 module.exports = (app) => {
+
+    // Index
+    app.get(API_PREFIX + '/index', hello);
+
     // User actions
     app.put(API_PREFIX + '/user', userController.create);
     app.post(API_PREFIX + '/login', userController.login);
@@ -15,4 +19,8 @@ module.exports = (app) => {
     // Conversation actions
     app.put(API_PREFIX + '/conversation', conversationsController.create);
     app.put(API_PREFIX + '/conversation/join', conversationsController.join);
+};
+
+const hello = (req, res) => {
+    res.status(200).send('Api index');
 };

@@ -30,7 +30,7 @@ module.exports = {
                 headers: {
                     'Accept': 'application/json, text/plain',
                     'Content-Type': 'application/json',
-                    'x-access-token': localStorage.getItem('jwt')
+                    'x-access-token': localStorage.getItem('JWT')
                 }
             })
                 .catch(err => {
@@ -49,7 +49,7 @@ module.exports = {
                 headers: {
                     'Accept': 'application/json, text/plain',
                     'Content-Type': 'application/json',
-                    'x-access-token': localStorage.getItem('jwt')
+                    'x-access-token': localStorage.getItem('JWT')
                 },
                 body: JSON.stringify(data)
             })
@@ -69,7 +69,7 @@ module.exports = {
                 headers: {
                     'Accept': 'application/json, text/plain',
                     'Content-Type': 'application/json',
-                    'x-access-token': localStorage.getItem('jwt')
+                    'x-access-token': localStorage.getItem('JWT')
                 }
             })
                 .catch(err => {

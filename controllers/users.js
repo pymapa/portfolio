@@ -2,7 +2,7 @@ const User = require('../models').User;
 const jwt = require('jsonwebtoken');
 
 const NO_TOKEN = 0;
-const UNVALID_TOKEN = 1;
+const INVALID_TOKEN = 1;
 const VALID_TOKEN = 2;
 
 module.exports = {
@@ -43,20 +43,19 @@ module.exports = {
     },
 
     checkToken: (req, res) => {
-        const token = req.headers['x-access-token'];
-        const valid = checkToken(req);
-        if(valid === NO_TOKEN)
-            res.status(401).send('No token found');
-        if(valid === UNVALID_TOKEN)
-            res.status(401).send('Invalid token');
-        if(valid === VALID_TOKEN)
+        const result = checkToken(req);
+        console.log(result);
+        if(result === VALID_TOKEN)
             res.status(200).send('Valid token');
+        else handleInvalidToken(result, res);
     },
 
     checkTokenAndNext: (req, res, next) => {
-        if(checkToken === VALID_TOKEN) {
+        const result = checkToken(req);
+        console.log(result);
+        if(result === VALID_TOKEN)
             next();
-        }
+        else handleInvalidToken(result, res);
     }
 };
 
@@ -69,12 +68,29 @@ const login = (user, res) => {
 
 const checkToken = (req) => {
     const token = req.headers['x-access-token'];
-    if(!token)
-        return NO_TOKEN;
-    jwt.verify(token, process.env.JWT_KEY, (err, decoded) => {
-        if(err) 
-            return UNVALID_TOKEN;
-        req.user = decoded;
-        return VALID_TOKEN;
-    });
+    let result = 0;
+    if(!token){
+        result = NO_TOKEN;
+    } else {
+        jwt.verify(token, process.env.JWT_KEY, (err, decoded) => {
+            if(!err) {
+                req.user = decoded;
+                result = VALID_TOKEN; 
+            } else {
+                result = INVALID_TOKEN;
+            }
+        });
+    }
+    return result;
+};
+
+const handleInvalidToken = (result, res) => {
+    if(result === NO_TOKEN) {
+        console.log('no token');
+        res.status(401).send('No token found');
+    }
+    if(result === INVALID_TOKEN) {
+        console.log('invalid token');
+        res.status(401).send('Invalid token');
+    }
 };
