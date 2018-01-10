@@ -3,7 +3,7 @@
     display: grid;
     grid-row: 2/3;
     grid-column: 1/4;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 2fr 3fr 2fr;
     grid-template-rows: 1fr 6fr 1fr;
     align-items: center;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import valid from '../../shared/formValidator';
 import styles from './User.css';
+import ajax from '../../shared/ajax';
 
 import {LoginForm} from './LoginForm';
 import {SignupForm} from './SignupForm';
@@ -36,7 +37,16 @@ class UserContainer extends Component {
     
     handleLogin(e) {
         e.preventDefault();
-        console.log('login');
+        ajax.sendPost('/login', {
+            username: this.state.user.username,
+            password: this.state.user.password
+        })
+            .then(res => {
+                console.log(res.body);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     handleSignup(e) {
@@ -45,7 +55,9 @@ class UserContainer extends Component {
     }
 
     handleChange(e) {
-
+        let _user = {...this.state.user};
+        _user[e.target.name] = e.target.value;
+        this.setState({user: _user});
     }
 
     changeForm(state) {
@@ -60,20 +72,20 @@ class UserContainer extends Component {
                 changeForm={this.changeForm} 
                 handleChange={this.handleChange}
                 handleSubmit={this.handleLogin}
-                {...this.state} />;
+                {...this.state.user} />;
             break;
         case  STATE_SIGNUP:
             component = <SignupForm 
                 changeForm={this.changeForm}  
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSignup}
-                {...this.state} />;
+                {...this.state.user} />;
             break;
         default:
             component = <LoginForm 
                 changeForm={this.changeForm} 
                 handleChange={this.handleChange}
-                {...this.state} />;
+                {...this.state.user} />;
         }
         
         return component;
