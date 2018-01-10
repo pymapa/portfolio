@@ -11,6 +11,7 @@ export const Menu = (props) => {
             {/* <MenuLink to='about' faIcon='question'/> */}
             <MenuLink to='messaging' faIcon='comments'/>
             <MenuLink to='code' faIcon='code'/>
+            <MenuLink to='profile' faIcon='user'/>
         </div>
     );
 };

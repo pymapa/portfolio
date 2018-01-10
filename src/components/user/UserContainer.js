@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import valid from '../../shared/formValidator';
 import styles from './User.css';
 
 import {LoginForm} from './LoginForm';
@@ -15,19 +16,22 @@ class UserContainer extends Component {
 
         this.state = {
             // Credentials
-            username: '',
-            password: '',
-            email: '',
-            fname: '',
-            lname: '',
+            user: {
+                username: '',
+                password: '',
+                email: '',
+                fname: '',
+                lname: '',
+            },
 
             // Form state
-            loginState: STATE_LOGIN
+            formState: STATE_LOGIN
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
         this.handleSignup = this.handleSignup.bind(this);
         this.selectForm = this.selectForm.bind(this);
+        this.changeForm = this.changeForm.bind(this);
     }
     
     handleLogin(e) {
@@ -44,17 +48,32 @@ class UserContainer extends Component {
 
     }
 
+    changeForm(state) {
+        this.setState({formState: state});
+    }
+
     selectForm() {
         let component;
-        switch (this.state.loginState) {
+        switch (this.state.formState) {
         case STATE_LOGIN:
-            component = <LoginForm />;
+            component = <LoginForm 
+                changeForm={this.changeForm} 
+                handleChange={this.handleChange}
+                handleSubmit={this.handleLogin}
+                {...this.state} />;
             break;
         case  STATE_SIGNUP:
-            component = <SignupForm />;
+            component = <SignupForm 
+                changeForm={this.changeForm}  
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSignup}
+                {...this.state} />;
             break;
         default:
-            component = <LoginForm />;
+            component = <LoginForm 
+                changeForm={this.changeForm} 
+                handleChange={this.handleChange}
+                {...this.state} />;
         }
         
         return component;
