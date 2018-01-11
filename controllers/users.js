@@ -29,9 +29,9 @@ module.exports = {
             })
             .then(user => {
                 if(!user) {
-                    res.status(401).send('User not found');
+                    res.status(401).send({message: 'User not found'});
                 } else if(user.password !== req.body.password) {
-                    res.status(401).send('Wrong password');
+                    res.status(401).send({message: 'Wrong password'});
                 } else {
                     login(user, res);
                 }
@@ -46,7 +46,7 @@ module.exports = {
         const result = checkToken(req);
         console.log(result);
         if(result === VALID_TOKEN)
-            res.status(200).send('Valid token');
+            res.status(200).send({message: 'Valid token'});
         else handleInvalidToken(result, res);
     },
 
@@ -63,7 +63,7 @@ const login = (user, res) => {
     const payload = {username: user.username};
     const token = jwt.sign(payload, process.env.JWT_KEY);
     res.set('x-access-token', token);
-    res.status(200).send('Login successful');
+    res.status(200).send({message: 'Login successful'});
 };
 
 const checkToken = (req) => {
@@ -87,10 +87,10 @@ const checkToken = (req) => {
 const handleInvalidToken = (result, res) => {
     if(result === NO_TOKEN) {
         console.log('no token');
-        res.status(401).send('No token found');
+        res.status(401).send({message: 'No token found'});
     }
     if(result === INVALID_TOKEN) {
         console.log('invalid token');
-        res.status(401).send('Invalid token');
+        res.status(401).send({message: 'Invalid token'});
     }
 };

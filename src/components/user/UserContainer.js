@@ -18,12 +18,15 @@ class UserContainer extends Component {
         this.state = {
             // Credentials
             user: {
-                username: '',
-                password: '',
+                username: 'pyry',
+                password: 'password',
                 email: '',
                 fname: '',
                 lname: '',
             },
+
+            // Ajax state
+            // ajaxState: STATE_WAIT,
 
             // Form state
             formState: STATE_LOGIN
@@ -41,12 +44,13 @@ class UserContainer extends Component {
             username: this.state.user.username,
             password: this.state.user.password
         })
-            .then(res => {
-                console.log(res.body);
-            })
             .catch(err => {
                 console.log(err);
-            });
+            })
+            .then(res => {
+                console.log(res);
+            })
+        ;
     }
 
     handleSignup(e) {

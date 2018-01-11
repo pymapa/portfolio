@@ -4,7 +4,7 @@ module.exports = {
 
 
     sendPost: (url, data) => {
-        return new Promise((resolve, reject) => {
+        const promise = new Promise((resolve, reject) => {
             fetch(URL_PREFIX + url, {
                 method: 'POST',
                 headers: {
@@ -15,12 +15,18 @@ module.exports = {
                 body: JSON.stringify(data)
             })
                 .catch(err => {
-                    reject(Error(err));
+                    reject(new Error(err));
                 })
-                .then(data => {
-                    resolve(data.json());
+                .then(res => {
+                    resJson = res.json();
+                    if(!res.ok) {
+                        resJson.then(err => reject(err));
+                    } else {
+                        resolve(resJson);
+                    }
                 });
         });
+        return promise;
     },
 
     sendGet: function(url) {
@@ -34,10 +40,15 @@ module.exports = {
                 }
             })
                 .catch(err => {
-                    reject(Error(err));
+                    reject(new Error(err));
                 })
-                .then(data => {
-                    resolve(data.json());
+                .then(res => {
+                    resJson = res.json();
+                    if(!res.ok) {
+                        resJson.then(err => reject(err));
+                    } else {
+                        resolve(resJson);
+                    }
                 });
         });
     },
@@ -54,10 +65,15 @@ module.exports = {
                 body: JSON.stringify(data)
             })
                 .catch(err => {
-                    reject(Error(err));
+                    reject(new Error(err));
                 })
-                .then(data => {
-                    resolve(data.json());
+                .then(res => {
+                    resJson = res.json();
+                    if(!res.ok) {
+                        resJson.then(err => reject(err));
+                    } else {
+                        resolve(resJson);
+                    }
                 });
         });
     },
@@ -73,10 +89,15 @@ module.exports = {
                 }
             })
                 .catch(err => {
-                    reject(Error(err));
+                    reject(new Error(err));
                 })
-                .then(data => {
-                    resolve(data.json());
+                .then(res => {
+                    resJson = res.json();
+                    if(!res.ok) {
+                        resJson.then(err => reject(err));
+                    } else {
+                        resolve(resJson);
+                    }
                 });
         });
     }

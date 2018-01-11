@@ -13,5 +13,5 @@ export default createStore(
         menu: menuReducer
     }),
     {},
-    applyMiddleware(createLogger(), thunk)
+    applyMiddleware(/*createLogger(),*/ thunk)
 );
