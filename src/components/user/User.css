@@ -6,9 +6,16 @@
     grid-template-columns: 2fr 3fr 2fr;
     grid-template-rows: 1fr 6fr 1fr;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .formWrapper {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.messagesWrapper {
+    align-self: flex-end;
     grid-column: 2/3;
     grid-row: 2/3;
 }

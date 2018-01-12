@@ -5,13 +5,15 @@ import thunk from 'redux-thunk';
 import userReducer from '../reducers/userReducer';
 import beverageReducer from '../reducers/beverageReducer';
 import menuReducer from '../reducers/menuReducer';
+import applicationmessageReducer from '../reducers/applicationmessageReducer';
 
 export default createStore(
     combineReducers({
         user: userReducer,
         beverage: beverageReducer,
-        menu: menuReducer
+        menu: menuReducer,
+        applicationMessages: applicationmessageReducer
     }),
     {},
-    applyMiddleware(/*createLogger(),*/ thunk)
+    applyMiddleware(createLogger(), thunk)
 );

@@ -15,6 +15,7 @@ export function setRole(role) {
 export function signIn(user) {
     user.signed = true;
     sessionStorage.setItem('user', JSON.stringify(user));
+    sessionStorage.setItem('JWT', JSON.stringify(user.jwt));
     return {
         type: 'SIGN_IN',
         payload: user

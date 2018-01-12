@@ -1,0 +1,53 @@
+@value vars: "../../shared/variables.css";
+@value dark, semidark, semilight, light, DancingScript from vars;
+
+.wrapper {
+    position: absolute;
+    right: 10vw;
+    top: 10vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    display: flex;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+    justify-content: space-between;
+
+}
+
+.text {
+
+}
+
+.close {
+    color: semilight;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.close a {
+    color: semilight;
+}
+
+.success {
+    background-color: semidark;
+}
+
+.info {
+    background-color: light;
+}
+
+.warning {
+    background-color: burlywood;
+}
+
+.error {
+    background-color: crimson;
+}

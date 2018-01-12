@@ -62,8 +62,12 @@ module.exports = {
 const login = (user, res) => {
     const payload = {username: user.username};
     const token = jwt.sign(payload, process.env.JWT_KEY);
+    const _user = {
+        username: user.username,
+        jwt: token
+    };
     res.set('x-access-token', token);
-    res.status(200).send({message: 'Login successful'});
+    res.status(200).send({_user});
 };
 
 const checkToken = (req) => {

@@ -21,6 +21,7 @@ module.exports = {
                     resJson = res.json();
                     if(!res.ok) {
                         resJson.then(err => reject(err));
+                        // throw new Error(resJson);
                     } else {
                         resolve(resJson);
                     }

@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import valid from '../../shared/formValidator';
 import styles from './User.css';
 import ajax from '../../shared/ajax';
 
+import {signIn} from '../../actions/userActions';
+
 import {LoginForm} from './LoginForm';
 import {SignupForm} from './SignupForm';
 
+// Form state, which form will be displayed
 const STATE_LOGIN = 0;
 const STATE_SIGNUP = 1;
 const STATE_CHANGEPASSWORD = 2;
 const STATE_FORGOTPASSWORD = 3;
+const STATE_WELCOME = 4;
 
 class UserContainer extends Component {
     constructor(props) {
@@ -26,7 +32,8 @@ class UserContainer extends Component {
             },
 
             // Ajax state
-            // ajaxState: STATE_WAIT,
+            loading: false,
+            errorMessage: '',
 
             // Form state
             formState: STATE_LOGIN
@@ -40,15 +47,24 @@ class UserContainer extends Component {
     
     handleLogin(e) {
         e.preventDefault();
+        this.setState({loading: true});
         ajax.sendPost('/login', {
             username: this.state.user.username,
             password: this.state.user.password
         })
             .catch(err => {
                 console.log(err);
+                this.setState({
+                    loading: false,
+                    errorMessage: err.message
+                });
             })
             .then(res => {
+                if(!res)
+                    return;
                 console.log(res);
+                this.props.signIn(res._user);
+                this.setState({loading: false});
             })
         ;
     }
@@ -104,4 +120,21 @@ class UserContainer extends Component {
     }
 }
 
-export default UserContainer;
+UserContainer.propTypes = {
+    signIn: PropTypes.func
+};
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.user,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signIn: (user) => {
+            dispatch(signIn(user));
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserContainer);

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from '../main.css';
 import { connect } from 'react-redux';
 import { signIn } from '../actions/userActions';
+import ApplicationMessage from '../components/applicationmessage/ApplicationMessage';
 
 import HeaderContainer from './HeaderContainer';
 import FooterContainer from './FooterContainer';
@@ -29,6 +30,7 @@ class App extends Component {
             <BrowserRouter>
                 <div className={styles.mainWrapper}>
                     <div className={styles.headerWrapper}>
+                        <ApplicationMessage />
                         <HeaderContainer />
                     </div>
                     <div className={styles.contentWrapper}>
