@@ -64,8 +64,14 @@ class ApplicationMessage extends Component {
     }
 
     render() {
+        const transitionOptions = {
+            name: 'fade',
+            transitionEnterTimeout: 500,
+            transitionLeaveTimeout: 500
+        };
         return (
             <div className={styles.wrapper}>
+                
                 {this.renderInfos()}
                 {this.renderSuccess()}
                 {this.renderWarnings()}

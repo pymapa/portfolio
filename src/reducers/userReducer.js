@@ -1,8 +1,5 @@
-const userReducer = (state = {
-    name: JSON.parse(sessionStorage.getItem('user')) ||'',
-    role: '',
-    signed: false
-}, action) => {
+const userReducer = (state = 
+    JSON.parse(sessionStorage.getItem('user')) || {signed: false}, action) => {
     switch (action.type) {
     case 'SET_NAME':
         state = {
@@ -21,6 +18,12 @@ const userReducer = (state = {
             ...state,
             name: action.payload.name,
             signed: action.payload.signed
+        };
+        break;
+    case 'SIGN_OUT':
+        state = {
+            ...state,
+            signed: false
         };
         break;
     default:

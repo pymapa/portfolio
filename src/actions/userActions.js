@@ -23,6 +23,8 @@ export function signIn(user) {
 }
 
 export function signOut() {
+    sessionStorage.removeItem('JWT');
+    sessionStorage.removeItem('user');
     return {
         type: 'SIGN_OUT'
     };

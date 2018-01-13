@@ -1,8 +1,15 @@
+const cuid = require('cuid');
+
 module.exports = {
-    addMessage: (message) => {
+    addMessage: (text, type) => {
+        const id = cuid();
         return {
             type: 'ADD_MESSAGE',
-            payload: message
+            payload: {
+                message: text,
+                type: type,
+                id: id
+            }
         };
     },
 
@@ -12,10 +19,10 @@ module.exports = {
         };
     },
 
-    clearMessage: (i) => {
+    clearMessage: (id) => {
         return {
             type: 'CLEAR_MESSAGE',
-            payload: i
+            payload: id
         };
     }
 };

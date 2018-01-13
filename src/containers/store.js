@@ -15,5 +15,5 @@ export default createStore(
         applicationMessages: applicationmessageReducer
     }),
     {},
-    applyMiddleware(createLogger(), thunk)
+    applyMiddleware(/*createLogger(),*/ thunk)
 );

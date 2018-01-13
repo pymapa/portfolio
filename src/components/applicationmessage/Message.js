@@ -5,14 +5,23 @@ import styles from './Message.css';
 import {clearMessage} from '../../actions/applicationmessageActions';
 
 class Message extends Component {
-    componentDidMount() {
-        setTimeout(() => {
-            console.log('asdfasd');
-        }, 5000);
+    constructor(props) {
+        super(props);
+
+        this.removeMessage = this.removeMessage.bind(this);
     }
 
-    removeMessage() {
+    componentDidMount() {
+        if(this.props.message.autoHide || true) {
+            setTimeout(() => {
+                this.props.clearMessage(this.props.message.id);
+            }, 5000);
+        }
+       
+    }
 
+    removeMessage(id) {
+        this.props.clearMessage(id);
     }
 
     render () {
@@ -22,7 +31,7 @@ class Message extends Component {
                     {this.props.message.message}
                 </div>
                 <div className={styles.close}>
-                    <a href="#" onClick={this.removeMessage}>
+                    <a href="#" onClick={() => this.removeMessage(this.props.message.id)}>
                         <i className="fa fa-times" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -38,8 +47,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        signIn: (user) => {
-            dispatch(signIn(user));
+        clearMessage: (id) => {
+            dispatch(clearMessage(id));
         }
     };
 };
@@ -48,5 +57,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(Message);
 
 Message.propTypes = {
     message: PropTypes.object,
-    typestyle: PropTypes.any
+    typestyle: PropTypes.any,
+    clearMessage: PropTypes.func
 };

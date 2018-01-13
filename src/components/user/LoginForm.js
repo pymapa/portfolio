@@ -17,7 +17,7 @@ export const LoginForm = (props) => {
                 </div>
                 <div className={form.formGroup}>
                     <input type="button" value="Create account" className={form.button} onClick={() => props.changeForm(1)} />
-                    <input type="submit" value="Login" className={form.button} />
+                    <input type="submit" value="Login" disabled={props.loading} className={form.button} />
                 </div>
             </form>
         </div>
@@ -29,5 +29,6 @@ LoginForm.propTypes = {
     password: PropTypes.string,
     handleSubmit: PropTypes.func,
     handleChange: PropTypes.func,
-    changeForm: PropTypes.func
+    changeForm: PropTypes.func,
+    loading: PropTypes.bool
 };
