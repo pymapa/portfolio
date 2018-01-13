@@ -6,18 +6,38 @@ const INVALID_TOKEN = 1;
 const VALID_TOKEN = 2;
 
 module.exports = {
-    create(req, res) {
-        return User
-            .create({
-                username: req.body.username,
-                password: req.body.password
-            })
-            .then(user => {
-                res.status(201).send(user);
-            })
-            .catch(err => {
-                res.status(500).send(err);
-            });
+    create: (req, res) => {
+
+        User.findOne({
+            where: {
+                username: req.body.username
+            }
+        }).then(user => {
+            if(user) {
+                res.status(400).send({message: 'Username already exists'});
+            } else {
+                User.create({
+                    email: req.body.email,
+                    username: req.body.username,
+                    password: req.body.password
+                })
+                    .catch(err => {
+                        res.status(500).send(err);
+                    })
+                    .then(user => {
+                        if(!user)
+                            return;
+                        const _user = {
+                            username: user.dataValues.username,
+                            email: user.dataValues.email
+                        };
+                        login(_user, res);
+                    });
+            }
+        });
+        
+            
+            
     },
 
     login: (req, res) => {

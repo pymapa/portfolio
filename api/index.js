@@ -12,7 +12,7 @@ module.exports = (app) => {
     app.get(API_PREFIX + '/index', hello);
 
     // User actions
-    app.put(API_PREFIX + '/user', userController.create);
+    app.put(API_PREFIX + '/signup', userController.create);
     app.post(API_PREFIX + '/login', userController.login);
     app.get(API_PREFIX + '/checktoken', userController.checkToken);
 

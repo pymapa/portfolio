@@ -29,14 +29,13 @@ class UserContainer extends Component {
             user: {
                 username: 'pyry',
                 password: 'password',
-                email: '',
-                fname: '',
-                lname: '',
+                email: 'asdf@adsf.df',
+                fname: 'asdf',
+                lname: 'asdf',
             },
 
             // Ajax state
             loading: false,
-            errorMessage: '',
 
             // Form state
             formState: STATE_SIGNUP
@@ -62,11 +61,9 @@ class UserContainer extends Component {
             password: this.state.user.password
         })
             .catch(err => {
-                console.log(err);
                 this.props.addMessage(err.message, constants.MESSAGE_WARNING);
                 this.setState({
-                    loading: false,
-                    errorMessage: err.message
+                    loading: false
                 });
             })
             .then(res => {
@@ -82,7 +79,26 @@ class UserContainer extends Component {
 
     handleSignup(e) {
         e.preventDefault();
-        console.log('signup');
+        this.setState({loading: true});
+        ajax.sendPut('/signup', {
+            username: this.state.user.username,
+            password: this.state.user.password,
+            email: this.state.user.email
+        })
+            .catch(err => {
+                this.props.addMessage(err.message, constants.MESSAGE_WARNING);
+                this.setState({
+                    loading: false,
+                });
+            })
+            .then(res => {
+                if(!res)
+                    return;
+                this.props.addMessage('Welcome ' + res._user.username + '!', constants.MESSAGE_SUCCESS)
+                this.props.signIn(res._user);
+                this.setState({loading: false});
+                this.props.history.push('/');
+            });
     }
 
     handleChange(e) {
