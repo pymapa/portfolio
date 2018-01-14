@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {Footer} from '../components/footer/Footer';
 
 import {showMenu, hideMenu} from '../actions/menuActions';
+import {signOut} from '../actions/userActions';
 
 class FooterContainer extends Component {
     constructor(props) {
@@ -11,19 +12,21 @@ class FooterContainer extends Component {
 
         this.showMenu = this.showMenu.bind(this);
         this.hideMenu = this.hideMenu.bind(this);
+        this.signOut = this.signOut.bind(this);
     }
     showMenu() {
         this.props.showMenu();
     }
     hideMenu() {
-        // setTimeout(() => {
         this.props.hideMenu();
-        // }, 500);
+    }
+    signOut() {
+        this.props.signOut();
     }
 
     render () {
         return (
-            <Footer showMenu={this.showMenu} hideMenu={this.hideMenu}/>
+            <Footer signOut={this.signOut} user={this.props.user} showMenu={this.showMenu} hideMenu={this.hideMenu}/>
         );
     }
 }
@@ -31,6 +34,7 @@ class FooterContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         menu: state.menu,
+        user: state.user
     };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -40,6 +44,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         hideMenu: () => {
             dispatch(hideMenu());
+        },
+        signOut: () => {
+            dispatch(signOut());
         }
     };
 };
@@ -48,5 +55,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(FooterContainer);
 
 FooterContainer.propTypes = {
     showMenu: PropTypes.func,
-    hideMenu: PropTypes.func
+    hideMenu: PropTypes.func,
+    signOut: PropTypes.func,
+    user: PropTypes.object
 };

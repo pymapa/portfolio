@@ -4,7 +4,7 @@ const userReducer = (state =
     case 'SET_NAME':
         state = {
             ...state,
-            name: action.payload
+            username: action.payload
         };
         break;
     case 'SET_ROLE':
@@ -16,14 +16,17 @@ const userReducer = (state =
     case 'SIGN_IN':
         state = {
             ...state,
-            name: action.payload.name,
+            username: action.payload.username,
+            email: action.payload.email,
             signed: action.payload.signed
         };
         break;
     case 'SIGN_OUT':
         state = {
             ...state,
-            signed: false
+            signed: false,
+            username: '',
+            email: ''
         };
         break;
     default:

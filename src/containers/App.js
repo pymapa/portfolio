@@ -16,6 +16,7 @@ import HomeContainer from './HomeContainer';
 import AboutContainer from './AboutPage';
 
 import UserContainer from '../components/user/UserContainer';
+import ProfileContainer from '../components/user/ProfileContainer';
 
 class App extends Component {
     componentWillMount() {
@@ -41,6 +42,7 @@ class App extends Component {
                             <Route exact path='/messaging' component={MessagingContainer} />
                             <Route exact path='/code' component={CodeContainer} />
                             <Route exact path='/login' component={UserContainer} />
+                            <Route exact path='/profile' component={ProfileContainer} />
                         </Switch>
                         <MenuContainer />
                     </div>

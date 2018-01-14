@@ -94,7 +94,7 @@ class UserContainer extends Component {
             .then(res => {
                 if(!res)
                     return;
-                this.props.addMessage('Welcome ' + res._user.username + '!', constants.MESSAGE_SUCCESS)
+                this.props.addMessage('Welcome ' + res._user.username + '!', constants.MESSAGE_SUCCESS);
                 this.props.signIn(res._user);
                 this.setState({loading: false});
                 this.props.history.push('/');

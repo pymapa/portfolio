@@ -15,7 +15,7 @@ class MenuContainer extends Component {
         this.hideMenu = this.hideMenu.bind(this);
     }
     componentDidMount() {
-        console.log(this.props.menu);
+        // console.log(this.props.menu);
     }
 
     showMenu() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './Footer.css';
 import {Modal} from '../modal/Modal';
@@ -17,7 +18,12 @@ export const Footer = (props) => {
             </div>
             
             <div className={styles.right}>
-                <a href="#">Sign out</a>
+                {props.user.signed ? (
+                    <a href="#" onClick={props.signOut}>Sign out</a>)
+                    : (
+                        <Link to='/login'>Login</Link>)
+                }
+                
             </div>
         </div>
     );
@@ -25,5 +31,7 @@ export const Footer = (props) => {
 
 Footer.propTypes = {
     showMenu: PropTypes.func.isRequired,
-    hideMenu: PropTypes.func.isRequired
+    hideMenu: PropTypes.func.isRequired,
+    signOut: PropTypes.func.isRequired,
+    user: PropTypes.object
 };

@@ -36,8 +36,6 @@ module.exports = {
             }
         });
         
-            
-            
     },
 
     login: (req, res) => {
@@ -80,10 +78,11 @@ module.exports = {
 };
 
 const login = (user, res) => {
-    const payload = {username: user.username};
+    const payload = {username: user.username, email: user.email};
     const token = jwt.sign(payload, process.env.JWT_KEY);
     const _user = {
         username: user.username,
+        email: user.email,
         jwt: token
     };
     res.set('x-access-token', token);
