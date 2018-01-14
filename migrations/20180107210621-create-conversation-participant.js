@@ -24,6 +24,9 @@ module.exports = {
                     as: 'userId'
                 }
             },
+            isOwner: {
+                type: Sequelize.BOOLEAN
+            },
             conversationId: {
                 allowNull: false,
                 type: Sequelize.INTEGER,

@@ -9,7 +9,7 @@ import ApplicationMessage from '../components/applicationmessage/ApplicationMess
 import HeaderContainer from './HeaderContainer';
 import FooterContainer from './FooterContainer';
 import MenuContainer from './MenuContainer';
-import MessagingContainer from './MessagingContainer';
+import MessagingContainer from '../components/messaging/MessagingContainer';
 import CodeContainer from './CodeContainer';
 
 import HomeContainer from './HomeContainer';

@@ -14,8 +14,8 @@ export function setRole(role) {
 
 export function signIn(user) {
     user.signed = true;
-    sessionStorage.setItem('user', JSON.stringify(user));
-    sessionStorage.setItem('JWT', JSON.stringify(user.jwt));
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('JWT', JSON.stringify(user.jwt));
     return {
         type: 'SIGN_IN',
         payload: user
@@ -23,8 +23,8 @@ export function signIn(user) {
 }
 
 export function signOut() {
-    sessionStorage.removeItem('JWT');
-    sessionStorage.removeItem('user');
+    localStorage.removeItem('JWT');
+    localStorage.removeItem('user');
     return {
         type: 'SIGN_OUT'
     };

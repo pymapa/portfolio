@@ -38,7 +38,7 @@ class UserContainer extends Component {
             loading: false,
 
             // Form state
-            formState: STATE_SIGNUP
+            formState: STATE_LOGIN
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleLogin = this.handleLogin.bind(this);

@@ -1,5 +1,5 @@
 const userReducer = (state = 
-    JSON.parse(sessionStorage.getItem('user')) || {signed: false}, action) => {
+    JSON.parse(localStorage.getItem('user')) || {signed: false}, action) => {
     switch (action.type) {
     case 'SET_NAME':
         state = {

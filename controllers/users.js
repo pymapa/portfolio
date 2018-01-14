@@ -62,7 +62,6 @@ module.exports = {
 
     checkToken: (req, res) => {
         const result = checkToken(req);
-        console.log(result);
         if(result === VALID_TOKEN)
             res.status(200).send({message: 'Valid token'});
         else handleInvalidToken(result, res);
@@ -70,15 +69,16 @@ module.exports = {
 
     checkTokenAndNext: (req, res, next) => {
         const result = checkToken(req);
-        console.log(result);
-        if(result === VALID_TOKEN)
+        if(result === VALID_TOKEN) {
             next();
-        else handleInvalidToken(result, res);
+        } else {
+            handleInvalidToken(result, res);
+        }
     }
 };
 
 const login = (user, res) => {
-    const payload = {username: user.username, email: user.email};
+    const payload = {username: user.username, email: user.email, id: user.id};
     const token = jwt.sign(payload, process.env.JWT_KEY);
     const _user = {
         username: user.username,
@@ -98,7 +98,7 @@ const checkToken = (req) => {
         jwt.verify(token, process.env.JWT_KEY, (err, decoded) => {
             if(!err) {
                 req.user = decoded;
-                result = VALID_TOKEN; 
+                result = VALID_TOKEN;
             } else {
                 result = INVALID_TOKEN;
             }

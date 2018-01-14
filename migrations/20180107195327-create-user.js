@@ -23,6 +23,10 @@ module.exports = {
             updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE
+            },
+            email: {
+                allowNull: false,
+                type: Sequelize.STRING
             }
         });
     },
