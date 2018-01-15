@@ -30,7 +30,7 @@ class Conversations extends Component {
     }
     
     conversations() {
-        const conversations = this.state.conversations.map((c, i) => {
+        const conversations = this.state.conversations.slice(0).reverse().map((c, i) => {
             return <Conversation key={i} conversation={c.Conversation} />;
         });
         return conversations;
@@ -41,6 +41,9 @@ class Conversations extends Component {
         ajax.sendPut('/conversation', {name: this.state.conversationName})
             .then(res => {
                 console.log(res);
+                const _conversations = this.state.conversations.slice();
+                _conversations.push({Conversation: res});
+                this.setState({conversations: _conversations, conversationName: ''});
             })
             .catch(err => {
                 console.log(err);

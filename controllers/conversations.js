@@ -13,8 +13,6 @@ module.exports = {
             })
             .then(conversation => {
                 _conversation = conversation.dataValues;
-                console.log(_conversation);
-                console.log(req.user);
                 ConversationParticipant
                     .create({
                         conversationId: _conversation.id,
