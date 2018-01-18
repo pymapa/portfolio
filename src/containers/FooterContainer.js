@@ -5,6 +5,8 @@ import {Footer} from '../components/footer/Footer';
 
 import {showMenu, hideMenu} from '../actions/menuActions';
 import {signOut} from '../actions/userActions';
+import {addMessage} from '../actions/applicationmessageActions';
+import constants from '../shared/applicationConstants';
 
 class FooterContainer extends Component {
     constructor(props) {
@@ -13,6 +15,7 @@ class FooterContainer extends Component {
         this.showMenu = this.showMenu.bind(this);
         this.hideMenu = this.hideMenu.bind(this);
         this.signOut = this.signOut.bind(this);
+        this.contact = this.contact.bind(this);
     }
     showMenu() {
         this.props.showMenu();
@@ -23,10 +26,13 @@ class FooterContainer extends Component {
     signOut() {
         this.props.signOut();
     }
+    contact() {
+        this.props.addMessage('TODO: not yet implemented!', constants.MESSAGE_WARNING);
+    }
 
     render () {
         return (
-            <Footer signOut={this.signOut} user={this.props.user} showMenu={this.showMenu} hideMenu={this.hideMenu}/>
+            <Footer contact={this.contact} signOut={this.signOut} user={this.props.user} showMenu={this.showMenu} hideMenu={this.hideMenu}/>
         );
     }
 }
@@ -47,7 +53,10 @@ const mapDispatchToProps = (dispatch) => {
         },
         signOut: () => {
             dispatch(signOut());
-        }
+        },
+        addMessage: (text, type) => {
+            dispatch(addMessage(text, type));
+        },
     };
 };
 
@@ -57,5 +66,6 @@ FooterContainer.propTypes = {
     showMenu: PropTypes.func,
     hideMenu: PropTypes.func,
     signOut: PropTypes.func,
-    user: PropTypes.object
+    user: PropTypes.object,
+    addMessage: PropTypes.func
 };

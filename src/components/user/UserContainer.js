@@ -27,11 +27,11 @@ class UserContainer extends Component {
         this.state = {
             // Credentials
             user: {
-                username: 'pyry',
-                password: 'password',
-                email: 'asdf@adsf.df',
-                fname: 'asdf',
-                lname: 'asdf',
+                username: '',
+                password: '',
+                email: '',
+                fname: '',
+                lname: '',
             },
 
             // Ajax state
@@ -49,7 +49,7 @@ class UserContainer extends Component {
 
     componentWillMount() {
         if(this.props.user.signed) {
-            // this.props.history.push('/');
+            this.props.history.push('/');
         }
     }
     

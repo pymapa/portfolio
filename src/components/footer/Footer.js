@@ -3,12 +3,13 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './Footer.css';
 import {Modal} from '../modal/Modal';
+import {addMessage} from '../../actions/applicationmessageActions';
 
 export const Footer = (props) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.left}>
-                <a href="#">
+                <a href="#" onClick={props.contact}>
                     Contact
                 </a>
                 
@@ -33,5 +34,6 @@ Footer.propTypes = {
     showMenu: PropTypes.func.isRequired,
     hideMenu: PropTypes.func.isRequired,
     signOut: PropTypes.func.isRequired,
+    contact: PropTypes.func.isRequired,
     user: PropTypes.object
 };

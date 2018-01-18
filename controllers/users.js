@@ -49,7 +49,8 @@ module.exports = {
             .then(user => {
                 if(!user) {
                     res.status(401).send({message: 'User not found'});
-                } else if(user.password !== req.body.password) {
+                    // TODO: synchronous method, will be refactored to async promise
+                } else if(bcrypt.compareSync(req.body.password, user.password)/* user.password !== req.body.password */) {
                     res.status(401).send({message: 'Wrong password'});
                 } else {
                     login(user, res);
