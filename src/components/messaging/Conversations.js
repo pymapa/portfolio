@@ -25,7 +25,6 @@ class Conversations extends Component {
             })
             .then(res => {
                 this.setState({conversations: res});
-                console.log(res);
             });
     }
     
@@ -40,7 +39,6 @@ class Conversations extends Component {
         e.preventDefault();
         ajax.sendPut('/conversation', {name: this.state.conversationName})
             .then(res => {
-                console.log(res);
                 const _conversations = this.state.conversations.slice();
                 _conversations.push({Conversation: res});
                 this.setState({conversations: _conversations, conversationName: ''});

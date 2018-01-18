@@ -24,7 +24,7 @@ const MenuLink = (props) => {
     return (
         <div className={styles.menuItem}>
             <Link to={'/' + props.to} id={props.to}>
-                <i className={'fa fa-' + props.faIcon} aria-hidden="true"></i>
+                <i className={'fa fa-' + props.faIcon + ' ' + styles.menuIcon} aria-hidden="true"></i>
             </Link>
         </div>
     );

@@ -29,12 +29,17 @@
     align-content: center;
 }
 
+
+
 .wrapper a {
     color: dark;
     text-decoration: none;
 }
 
 .menuIcon {
-    width: 5em;
-    display: flex;
+    transition: all .3s;
+}
+
+.menuIcon:hover {
+    font-size: 170%;
 }

@@ -34,6 +34,11 @@
 
 .someLink {
     font-size: 200%;
+    transition: all .3s;
+}
+
+.someLink:hover {
+    font-size: 250%;
 }
 
 .wrapper a {

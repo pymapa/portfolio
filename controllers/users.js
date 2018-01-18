@@ -1,5 +1,6 @@
 const User = require('../models').User;
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const NO_TOKEN = 0;
 const INVALID_TOKEN = 1;
@@ -14,28 +15,28 @@ module.exports = {
             }
         }).then(user => {
             if(user) {
-                res.status(400).send({message: 'Username already exists'});
-            } else {
-                User.create({
-                    email: req.body.email,
-                    username: req.body.username,
-                    password: req.body.password
-                })
-                    .catch(err => {
-                        res.status(500).send(err);
-                    })
-                    .then(user => {
-                        if(!user)
-                            return;
-                        const _user = {
-                            username: user.dataValues.username,
-                            email: user.dataValues.email
-                        };
-                        login(_user, res);
-                    });
+                Promise.reject({status: 400, message: 'Username already exists'});
             }
+            Promise.resolve();
+        }).then(() => 
+            generateHash(req.body.password)
+        ).then((hash) => {
+            return User.create({
+                email: req.body.email,
+                username: req.body.username,
+                password: hash
+            });
+        }).then(user => {
+            if(!user)
+                return;
+            const _user = {
+                username: user.dataValues.username,
+                email: user.dataValues.email
+            };
+            login(_user, res);
+        }).catch(err => {
+            res.status(err.status).sen({message: err.message});
         });
-        
     },
 
     login: (req, res) => {
@@ -75,6 +76,18 @@ module.exports = {
             handleInvalidToken(result, res);
         }
     }
+};
+
+const generateHash = (password) => {
+    return new Promise((resolve, reject) => {
+        bcrypt.hash(password, 10, (err, hash) => {
+            if(err) {
+                reject(err);
+            } else {
+                resolve(hash);
+            }
+        });
+    });
 };
 
 const login = (user, res) => {
