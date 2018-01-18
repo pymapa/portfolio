@@ -11,6 +11,7 @@ Project is created with Create React App and ejected.
 - ExpressJS
 - PostgreSQL
 - CSS Modules
+- CSS grid, flexbox
 
 ### Pre-requisites
 Node v. 8.x
