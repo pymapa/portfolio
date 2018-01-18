@@ -10,7 +10,7 @@ Project is created with Create React App and ejected.
 - NodeJS
 - ExpressJS
 - PostgreSQL
-
+- CSS Modules
 
 ### Pre-requisites
 Node v. 8.x
