@@ -1,10 +1,34 @@
 const Conversation = require('../models').Conversation;
+const Message = require('../models').Message;
 const ConversationParticipant = require('../models').ConversationParticipant;
 
 module.exports = {
 
+    newMessage: (req, res) => {
+        Message.create({
+            message: req.body.message,
+            userId: req.user.id,
+            conversationId: req.body.conversationId
+        })
+        // TODO: handle error/success and send response
+    },
+
     getMessagesByConversationId: (req, res) => {
-        res.status(200).send({message: 'Success'});
+        Message.findAll({
+            where: {
+                conversationId: req.params.conversationId
+            }
+        })
+            .then(result => {
+                if(!result) {
+                    res.status(200).send({message: 'No messages in conversation yet!'});
+                    return;
+                }
+                res.status(200).send(result);
+            })
+            .catch(err => {
+                res.status(500).send(err);
+            });
     },
 
     createAndJoin: (req, res) => {
