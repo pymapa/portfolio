@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Messaging.css';
-import {Conversation} from './Conversation';
+import Conversation from './Conversation';
 import {AddConversation} from './AddConversation';
 import ajax from '../../shared/ajax';
 

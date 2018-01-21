@@ -6,14 +6,16 @@ import userReducer from '../reducers/userReducer';
 import beverageReducer from '../reducers/beverageReducer';
 import menuReducer from '../reducers/menuReducer';
 import applicationmessageReducer from '../reducers/applicationmessageReducer';
+import messageReducer from '../reducers/messageReducer';
 
 export default createStore(
     combineReducers({
         user: userReducer,
         beverage: beverageReducer,
         menu: menuReducer,
-        applicationMessages: applicationmessageReducer
+        applicationMessages: applicationmessageReducer,
+        message: messageReducer
     }),
     {},
-    applyMiddleware(/*createLogger(),*/ thunk)
+    applyMiddleware(createLogger(), thunk)
 );

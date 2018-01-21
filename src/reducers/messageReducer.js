@@ -1,4 +1,4 @@
-const messageReducer = (state = {conversation: null}, action) => {
+const messageReducer = (state = {conversation: {id: null}}, action) => {
     switch (action.type) {
     case 'SELECT_CONVERSATION':
         state = {
@@ -11,3 +11,5 @@ const messageReducer = (state = {conversation: null}, action) => {
     }
     return state;
 };
+
+export default messageReducer;

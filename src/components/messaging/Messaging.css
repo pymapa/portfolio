@@ -1,3 +1,6 @@
+@value vars: "../../shared/variables.css";
+@value dark, semidark, semilight, light from vars;
+
 .wrapper {
     max-height: 80vh;
     display: grid;
@@ -21,6 +24,14 @@
 
 .conversation {
     padding: 1em;
+}
+.conversation:hover {
+    background-color: light;
+}
+
+.selectedConversation {
+    padding: 1em;
+    background-color: semidark;
 }
 
 .messagesWrapper {

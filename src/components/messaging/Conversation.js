@@ -1,15 +1,36 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Messaging.css';
+import {selectConversation} from '../../actions/messageActions';
 
-export const Conversation = (props) => {
+const Conversation = (props) => {
+
     return (
-        <div className={styles.conversation}>
+        <div onClick={() => props.selectConversation(props.conversation)}  className={props.conversation.id === props.messageState.conversation.id ? styles.selectedConversation : styles.conversation} >
             <h3>{props.conversation.name}</h3>
         </div>
     );
 };
 
 Conversation.propTypes = {
-    conversation: PropTypes.object
+    conversation: PropTypes.object,
+    selectConversation: PropTypes.func,
+    messageState: PropTypes.object
 };
+
+const mapStateToProps = (state) => {
+    return {
+        messageState: state.message
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        selectConversation: (conversation) => {
+            dispatch(selectConversation(conversation));
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Conversation);
