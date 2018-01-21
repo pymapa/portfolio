@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Messaging.css';
-import {selectConversation} from '../../actions/messageActions';
+import {selectConversation, fetchMessages} from '../../actions/messageActions';
 
 const Conversation = (props) => {
 
@@ -21,7 +21,7 @@ Conversation.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        messageState: state.message
+        messageState: state.messaging
     };
 };
 
@@ -29,6 +29,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         selectConversation: (conversation) => {
             dispatch(selectConversation(conversation));
+            dispatch(fetchMessages(conversation));
         },
     };
 };

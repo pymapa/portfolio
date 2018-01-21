@@ -14,7 +14,7 @@ export default createStore(
         beverage: beverageReducer,
         menu: menuReducer,
         applicationMessages: applicationmessageReducer,
-        message: messageReducer
+        messaging: messageReducer
     }),
     {},
     applyMiddleware(createLogger(), thunk)

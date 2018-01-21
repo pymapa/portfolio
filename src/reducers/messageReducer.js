@@ -1,4 +1,7 @@
-const messageReducer = (state = {conversation: {id: null}}, action) => {
+const messageReducer = (state = {
+    conversation: {id: null},
+    messages: []
+}, action) => {
     switch (action.type) {
     case 'SELECT_CONVERSATION':
         state = {

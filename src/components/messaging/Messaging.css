@@ -31,6 +31,7 @@
 
 .selectedConversation {
     padding: 1em;
+    padding-left: 2em;
     background-color: semidark;
 }
 

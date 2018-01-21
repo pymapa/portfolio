@@ -2,6 +2,11 @@ const Conversation = require('../models').Conversation;
 const ConversationParticipant = require('../models').ConversationParticipant;
 
 module.exports = {
+
+    getMessagesByConversationId: (req, res) => {
+        res.status(200).send({message: 'Success'});
+    },
+
     createAndJoin: (req, res) => {
         let _conversation;
         Conversation

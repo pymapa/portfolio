@@ -17,6 +17,7 @@ module.exports = (app) => {
     app.get(API_PREFIX + '/checktoken', userController.checkToken);
 
     // Conversation actions
+    app.get(API_PREFIX + '/messages/:conversationId', userController.checkTokenAndNext, conversationsController.getMessagesByConversationId);
     app.get(API_PREFIX + '/conversations', userController.checkTokenAndNext, conversationsController.getByUserId);
     app.put(API_PREFIX + '/conversation', userController.checkTokenAndNext, conversationsController.createAndJoin);
     app.put(API_PREFIX + '/conversation/join', userController.checkTokenAndNext, conversationsController.join);

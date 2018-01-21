@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Messaging.css';
-import {Messages} from './Messages';
+import Messages from './Messages';
 import WriteMessage from './WriteMessage';
 import Conversations from './Conversations';
 
