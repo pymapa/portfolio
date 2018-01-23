@@ -18,7 +18,6 @@ function receiveMessages(conversation, json) {
     console.log(json);
     return {
         type: 'RECEIVE_MESSAGES',
-        conversation,
-        messages: json.data
+        payload: json
     };
 }

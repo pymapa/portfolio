@@ -13,20 +13,16 @@ class Messages extends Component {
     }
 
     renderMessages() {
-        this.props.messaging.messages.map((message, i) => {
+        let messages = this.props.messaging.messages.map((message, i) => {
             return <Message key={i} message={message} />;
         });
+        return messages;
     }
 
     render() {
         return (
             <div className={styles.messagesWrapper}>
                 {this.props.messaging.conversation.id ? this.renderMessages() : <h3>Select conversation</h3>}
-                {/* <Message message={'eka'} />
-                <Message message={'asdfasdf'} />
-                <Message message={'asdfasdf'} />
-                <Message message={'asdfasdf'} />
-                <Message message={'vika'} /> */}
             </div>
         );
     }

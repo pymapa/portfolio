@@ -9,6 +9,11 @@ const messageReducer = (state = {
             conversation: action.payload
         };
         break;
+    case 'RECEIVE_MESSAGES':
+        state = {
+            ...state,
+            messages: action.payload
+        };
     default:
         break;
     }

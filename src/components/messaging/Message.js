@@ -10,12 +10,12 @@ export const Message = (props) => {
                 P
             </div>
             <div className={styles.message}>
-                <p>{props.message}</p>
+                <p>{props.message.message}</p>
             </div>
         </div>
     );
 };
 
 Message.propTypes = {
-    message: PropTypes.string.isRequired
+    message: PropTypes.object.isRequired
 };

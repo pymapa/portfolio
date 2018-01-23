@@ -10,7 +10,13 @@ module.exports = {
             userId: req.user.id,
             conversationId: req.body.conversationId
         })
-        // TODO: handle error/success and send response
+            .then(result => {
+                res.status(200).send(result);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).send(err);
+            });
     },
 
     getMessagesByConversationId: (req, res) => {
