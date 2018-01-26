@@ -1,26 +1,5 @@
 const initialState = {
-    messages: [
-        // {
-        //     message: 'Success message',
-        //     type: 1,
-        //     id: 'asdfö84'
-        // },
-        // {
-        //     message: 'Info message',
-        //     type: 0,
-        //     id: 'alskfbnoir'
-        // },
-        // {
-        //     message: 'warning message',
-        //     type: 2,
-        //     id: 'lkaegj5608'
-        // },
-        // {
-        //     message: 'error message!!!!',
-        //     type: 3,
-        //     id: 'osabknsdgbi'
-        // }
-    ]
+    messages: []
 };
 
 const applicationmessageReducer = (state = initialState, action) => {

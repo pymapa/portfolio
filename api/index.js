@@ -21,6 +21,7 @@ module.exports = (app) => {
     app.get(API_PREFIX + '/conversations', userController.checkTokenAndNext, conversationsController.getByUserId);
     app.put(API_PREFIX + '/conversation', userController.checkTokenAndNext, conversationsController.createAndJoin);
     app.put(API_PREFIX + '/conversation/join', userController.checkTokenAndNext, conversationsController.join);
+    app.put(API_PREFIX + '/message', userController.checkTokenAndNext, conversationsController.newMessage);
 };
 
 const hello = (req, res) => {

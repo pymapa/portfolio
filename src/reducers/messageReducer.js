@@ -14,6 +14,13 @@ const messageReducer = (state = {
             ...state,
             messages: action.payload
         };
+        break;
+    case 'NEW_MESSAGE':
+        state = {
+            ...state,
+            messages: [...state.messages, action.payload]
+        };
+        break;
     default:
         break;
     }

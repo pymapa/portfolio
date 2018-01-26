@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import styles from './Messaging.css';
 import form from '../../shared/form.css';
 import ajax from '../../shared/ajax';
+import {sendMessage} from '../../actions/messageActions';
 
 
 class WriteMessage extends Component {
@@ -18,7 +21,7 @@ class WriteMessage extends Component {
 
     send(e) {
         e.preventDefault();
-        console.log(this.message.value);
+        sendMessage(this.message.value, this.props.messaging.conversation);
         
     }
 
@@ -39,4 +42,22 @@ class WriteMessage extends Component {
     }
 }
 
-export default WriteMessage;
+WriteMessage.propTypes = {
+    messaging: PropTypes.object
+};
+
+const mapStateToProps = (state) => {
+    return {
+        messaging: state.messaging
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        sendMessage: (message, conversation) => {
+            dispatch(sendMessage(message, conversation));
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WriteMessage);
