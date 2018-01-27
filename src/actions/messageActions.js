@@ -19,7 +19,6 @@ export function sendMessage(message, conversation) {
     return (dispatch) => {
         return ajax.sendPut('/message', {message: message, conversationId: conversation.id})
             .then(res => {
-                console.log(res);
                 dispatch(newMessage(res));
             })
             .catch(err => console.log(err));

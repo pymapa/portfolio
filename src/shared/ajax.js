@@ -2,7 +2,6 @@ const URL_PREFIX = '/api/01';
 
 module.exports = {
 
-
     sendPost: (url, data) => {
         const promise = new Promise((resolve, reject) => {
             fetch(URL_PREFIX + url, {
@@ -30,8 +29,8 @@ module.exports = {
         return promise;
     },
 
-    sendGet: function(url) {
-        return new Promise((resolve, reject) => {
+    sendGet: (url) => {
+        const promise = new Promise((resolve, reject) => {
             fetch(URL_PREFIX + url, {
                 method: 'GET',
                 headers: {
@@ -52,10 +51,11 @@ module.exports = {
                     }
                 });
         });
+        return promise;
     },
 
-    sendPut: function(url, data) {
-        return new Promise((resolve, reject) => {
+    sendPut: (url, data) => {
+        const promise = new Promise((resolve, reject) => {
             fetch(URL_PREFIX + url, {
                 method: 'PUT',
                 headers: {
@@ -77,10 +77,11 @@ module.exports = {
                     }
                 });
         });
+        return promise;
     },
 
-    sendDelete: function(url) {
-        return new Promise((resolve, reject) => {
+    sendDelete: (url) => {
+        const promise = new Promise((resolve, reject) => {
             fetch(URL_PREFIX + url, {
                 method: 'DELETE',
                 headers: {
@@ -101,5 +102,6 @@ module.exports = {
                     }
                 });
         });
+        return promise;
     }
 };

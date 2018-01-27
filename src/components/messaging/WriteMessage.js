@@ -21,7 +21,7 @@ class WriteMessage extends Component {
 
     send(e) {
         e.preventDefault();
-        sendMessage(this.message.value, this.props.messaging.conversation);
+        this.props.sendMessage(this.message.value, this.props.messaging.conversation);
         
     }
 
@@ -43,7 +43,8 @@ class WriteMessage extends Component {
 }
 
 WriteMessage.propTypes = {
-    messaging: PropTypes.object
+    messaging: PropTypes.object,
+    sendMessage: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
