@@ -37,6 +37,7 @@ class Conversations extends Component {
 
     async createConversation(e) {
         e.preventDefault();
+        console.log('createconv');
         this.props.createConversation({name: this.state.conversationName});
     }
 
