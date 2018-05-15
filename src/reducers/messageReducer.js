@@ -1,24 +1,34 @@
-const messageReducer = (state = {
-    conversation: {id: null},
+import {actions} from '../actions/messageActions';
+
+const initialState = {
+    conversations: [],
+    conversation: { id: null },
     messages: []
-}, action) => {
+};
+
+const messageReducer = (state = initialState, action) => {
     switch (action.type) {
-    case 'SELECT_CONVERSATION':
+    case actions.SELECT_CONVERSATION:
         state = {
             ...state,
             conversation: action.payload
         };
         break;
-    case 'RECEIVE_MESSAGES':
+    case actions.RECEIVE_MESSAGES:
         state = {
             ...state,
             messages: action.payload
         };
         break;
-    case 'NEW_MESSAGE':
+    case actions.RECEIVE_CONVERSATIONS:
         state = {
             ...state,
-            messages: [...state.messages, action.payload]
+            conversations: action.conversations
+        };
+    case actions.NEW_MESSAGE:
+        state = {
+            ...state,
+            messages: [...state.messages, action.message]
         };
         break;
     default:

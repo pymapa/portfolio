@@ -105,6 +105,7 @@ const login = (user, res) => {
 
 const checkToken = (req) => {
     const token = req.headers['x-access-token'];
+    console.log(token);
     let result = 0;
     if(!token){
         result = NO_TOKEN;

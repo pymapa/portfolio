@@ -1,47 +1,43 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import cuid from 'cuid';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Messaging.css';
 
-import {Message} from './Message';
+import { Message } from './Message';
 
-class Messages extends Component {
-    constructor(props) {
-        super(props);
-
-        this.renderMessages = this.renderMessages.bind(this);
-    }
-
-    renderMessages() {
-        let messages = this.props.messaging.messages.map((message, i) => {
-            return <Message key={i} message={message} />;
+const Messages = ({ messaging }) => {
+    const renderMessages = () => {
+        console.log(messaging.messages);
+        let messages = messaging.messages.map((message) => {
+            return <Message key={cuid()} message={message} />;
         });
         return messages;
-    }
+    };
 
-    render() {
-        return (
-            <div className={styles.messagesWrapper}>
-                {this.props.messaging.conversation.id ? this.renderMessages() : <h3>Select conversation</h3>}
-            </div>
-        );
-    }
+    return (
+        <div className={styles.messagesWrapper}>
+            {messaging.conversation.id ? (
+                renderMessages()
+            ) : (
+                <h3>Select conversation</h3>
+            )}
+        </div>
+    );
 };
 
 Messages.propTypes = {
     messaging: PropTypes.object
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         messaging: state.messaging
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-
-    };
+const mapDispatchToProps = dispatch => {
+    return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Messages);
